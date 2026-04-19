@@ -1,0 +1,839 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApp.Site1" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title><%: this.Page.Title %> - NHF Web Application</title>
+    <meta charset="utf-8">
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/style1.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <style>
+        a.cta_button {
+            -moz-box-sizing: content-box !important;
+            -webkit-box-sizing: content-box !important;
+            box-sizing: content-box !important;
+            vertical-align: middle
+        }
+
+        .hs-breadcrumb-menu {
+            list-style-type: none;
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px
+        }
+
+        .hs-breadcrumb-menu-item {
+            float: left;
+            padding: 10px 0px 10px 10px
+        }
+
+        .hs-breadcrumb-menu-divider:before {
+            content: '›';
+            padding-left: 10px
+        }
+
+        .hs-featured-image-link {
+            border: 0
+        }
+
+        .hs-featured-image {
+            float: right;
+            margin: 0 0 20px 20px;
+            max-width: 50%
+        }
+
+        @media (max-width: 568px) 
+        {
+            .hs-featured-image {
+                float: none;
+                margin: 0;
+                width: 100%;
+                max-width: 100%
+            }
+        }
+
+        .hs-screen-reader-text {
+            clip: rect(1px, 1px, 1px, 1px);
+            height: 1px;
+            overflow: hidden;
+            position: absolute !important;
+            width: 1px
+        }
+    </style>
+
+    <link rel="stylesheet" href="hs/css/main.min.css">
+    <link rel="stylesheet" href="hs/css/theme-overrides.min.css">
+    <link rel="stylesheet" href="hs/css/menu-section.min.css">
+    <link rel="stylesheet" href="hs/css/menu-button.min.css">
+
+
+    <link rel="stylesheet" href="hs/css/quest-hero-1.min.css">
+
+    <style>
+        #hs_cos_wrapper_dnd_area-module-1 .button-2 .button,
+        #hs_cos_wrapper_dnd_area-module-1 .button-2 .cta_button {
+            background-color: rgba(231,234,238,1.0);
+            border-color: rgba(231,234,238,1.0);
+            color: rgba(30,61,96,1.0);
+            fill: rgba(30,61,96,1.0);
+        }
+
+            #hs_cos_wrapper_dnd_area-module-1 .button-2 .button:hover,
+            #hs_cos_wrapper_dnd_area-module-1 .button-2 .button:focus,
+            #hs_cos_wrapper_dnd_area-module-1 .button-2 .cta_button:hover,
+            #hs_cos_wrapper_dnd_area-module-1 .button-2 .cta_button:focus {
+                background-color: rgba(211,214,218,1.0);
+                border-color: rgba(211,214,218,1.0);
+            }
+
+            #hs_cos_wrapper_dnd_area-module-1 .button-2 .button:active,
+            #hs_cos_wrapper_dnd_area-module-1 .button-2 .cta_button:active {
+                background-color: rgba(201,204,208,1.0);
+                border-color: rgba(201,204,208,1.0);
+            }
+    </style>
+
+    <link rel="stylesheet" href="hs/css/_slick.min.css">
+    <link rel="stylesheet" href="hs/css/quest-course-slider.min.css">
+
+    <style>
+        #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__content {
+        }
+
+        #hs_cos_wrapper_widget_1643004069988 span.quest-course-slider__duration {
+        }
+
+        #hs_cos_wrapper_widget_1643004069988 span.quest-course-slider__price {
+        }
+
+        #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__content h3 {
+        }
+
+        #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__content p {
+        }
+
+        #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__author p {
+        }
+
+        #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__slider button.slick-arrow {
+        }
+
+            #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__slider button.slick-arrow:hover {
+            }
+
+        #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__slider .slick-prev:before {
+        }
+
+        #hs_cos_wrapper_widget_1643004069988 .quest-course-slider__slider button.slick-arrow:hover:before {
+        }
+    </style>
+
+    <link rel="stylesheet" href="hs/css/quest-card-1.min.css">
+
+    <style>
+        #hs_cos_wrapper_widget_1643089372777 .quest-card-1 .heading-text .heading-color {
+            color: rgba(255,255,255,1.0);
+        }
+
+        #hs_cos_wrapper_widget_1643089372777 .quest-card-1 .card {
+            background: linear-gradient(to bottom,rgba(255,255,255,1),rgba(255,255,255,1));
+            border: 1px solid #dae5ec;
+        }
+
+            #hs_cos_wrapper_widget_1643089372777 .quest-card-1 .card .card-icon svg {
+                fill: #0f437f;
+            }
+    </style>
+
+    <link rel="stylesheet" href="hs/css/quest-hero-testimonial.min.css">
+
+    <style>
+        #hs_cos_wrapper_widget_1643095628287 .button-2 .button,
+        #hs_cos_wrapper_widget_1643095628287 .button-2 .cta_button {
+            background-color: rgba(190,202,215,1.0);
+            border-color: rgba(190,202,215,1.0);
+            color: rgba(30,61,96,1.0);
+            fill: rgba(30,61,96,1.0);
+        }
+
+            #hs_cos_wrapper_widget_1643095628287 .button-2 .button:hover,
+            #hs_cos_wrapper_widget_1643095628287 .button-2 .button:focus,
+            #hs_cos_wrapper_widget_1643095628287 .button-2 .cta_button:hover,
+            #hs_cos_wrapper_widget_1643095628287 .button-2 .cta_button:focus {
+                background-color: rgba(170,182,195,1.0);
+                border-color: rgba(170,182,195,1.0);
+            }
+
+            #hs_cos_wrapper_widget_1643095628287 .button-2 .button:active,
+            #hs_cos_wrapper_widget_1643095628287 .button-2 .cta_button:active {
+                background-color: rgba(160,172,185,1.0);
+                border-color: rgba(160,172,185,1.0);
+            }
+    </style>
+
+    <link rel="stylesheet" href="hs/css/quest-three-column-testimonial.min.css">
+
+    <style>
+        #hs_cos_wrapper_dnd_area-module-4 .quest-three-column-testimonial .card {
+            background-color: rgba(248,248,248,1.0);
+        }
+
+        #hs_cos_wrapper_dnd_area-module-4 .button,
+        #hs_cos_wrapper_dnd_area-module-4 .cta_button {
+            background-color: rgba(255,255,255,1.0);
+            border-color: rgba(255,255,255,1.0);
+            color: rgba(15,67,127,1.0);
+            fill: rgba(15,67,127,1.0);
+        }
+
+            #hs_cos_wrapper_dnd_area-module-4 .button:hover,
+            #hs_cos_wrapper_dnd_area-module-4 .button:focus,
+            #hs_cos_wrapper_dnd_area-module-4 .cta_button:hover,
+            #hs_cos_wrapper_dnd_area-module-4 .cta_button:focus {
+                background-color: rgba(#null,0.0);
+                border-color: rgba(#null,0.0);
+            }
+
+            #hs_cos_wrapper_dnd_area-module-4 .button:active,
+            #hs_cos_wrapper_dnd_area-module-4 .cta_button:active {
+                background-color: rgba(#null,0.0);
+                border-color: rgba(#null,0.0);
+            }
+
+        #hs_cos_wrapper_dnd_area-module-4 .quest-three-column-testimonial .content img {
+            border-radius: 8px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="hs/css/quest-two-column-items.min.css">
+    <link rel="stylesheet" href="hs/css/quest-card-course.min.css">
+    <link rel="stylesheet" href="hs/css/quest-testimonial-slider.min.css">
+    <link rel="stylesheet" href="hs/css/quest-recent-post.min.css">
+
+    <style>
+        #hs_cos_wrapper_dnd_area-module-7 .quest-recent-post .blog-card {
+            background: linear-gradient(to bottom,rgba(255,255,255,1),rgba(255,255,255,1));
+        }
+    </style>
+
+    <link rel="stylesheet" href="hs/css/social-follow.min.css">
+
+    <style>
+        #hs_cos_wrapper_footer-module-19 .social-links {
+        }
+
+        #hs_cos_wrapper_footer-module-19 .social-links__link {
+        }
+
+        #hs_cos_wrapper_footer-module-19 .social-links__icon {
+            background-color: rgba(255,255,255,1.0);
+        }
+
+            #hs_cos_wrapper_footer-module-19 .social-links__icon svg {
+                fill: #263238;
+                height: 16px;
+                width: 16px;
+            }
+
+            #hs_cos_wrapper_footer-module-19 .social-links__icon:hover,
+            #hs_cos_wrapper_footer-module-19 .social-links__icon:focus {
+                background-color: rgba(235,235,235,1.0);
+            }
+
+            #hs_cos_wrapper_footer-module-19 .social-links__icon:active {
+                background-color: rgba(225,225,225,1.0);
+            }
+    </style>
+
+    <style>
+        @font-face {
+            font-family: "Kumbh Sans";
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+            src: url("hs/googlefonts/Kumbh_Sans/regular.woff2") format("woff2"), url("hs/googlefonts/Kumbh_Sans/regular.woff") format("woff");
+        }
+
+        @font-face {
+            font-family: "Kumbh Sans";
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+            src: url("hs/googlefonts/Kumbh_Sans/700.woff2") format("woff2"), url("hs/googlefonts/Kumbh_Sans/700.woff") format("woff");
+        }
+
+        @font-face {
+            font-family: "Newsreader";
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+            src: url("hs/googlefonts/Newsreader/regular.woff2") format("woff2"), url("hs/googlefonts/Newsreader/regular.woff") format("woff");
+        }
+
+        @font-face {
+            font-family: "Newsreader";
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+            src: url("hs/googlefonts/Newsreader/600.woff2") format("woff2"), url("hs/googlefonts/Newsreader/600.woff") format("woff");
+        }
+    </style>
+
+    <!-- Editor Styles -->
+    <style id="hs_editor_style" type="text/css">
+        .dnd_area-row-1-force-full-width-section > .row-fluid {
+            max-width: none !important;
+        }
+
+        .dnd_area-row-7-force-full-width-section > .row-fluid {
+            max-width: none !important;
+        }
+        /* HubSpot Non-stacked Media Query Styles */
+        @media (min-width:768px) {
+            .footer-row-0-vertical-alignment > .row-fluid {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: row;
+                display: flex !important;
+                flex-direction: row;
+            }
+
+            .footer-row-3-vertical-alignment > .row-fluid {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: row;
+                display: flex !important;
+                flex-direction: row;
+            }
+
+            .footer-row-4-vertical-alignment > .row-fluid {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: row;
+                display: flex !important;
+                flex-direction: row;
+            }
+
+            .cell_1642727906521-vertical-alignment {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: column !important;
+                -ms-flex-pack: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+
+                .cell_1642727906521-vertical-alignment > div {
+                    flex-shrink: 0 !important;
+                }
+
+            .cell_1642727906519-vertical-alignment {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: column !important;
+                -ms-flex-pack: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+
+                .cell_1642727906519-vertical-alignment > div {
+                    flex-shrink: 0 !important;
+                }
+
+            .cell_16427279942282-vertical-alignment {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: column !important;
+                -ms-flex-pack: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+
+                .cell_16427279942282-vertical-alignment > div {
+                    flex-shrink: 0 !important;
+                }
+
+            .footer-column-18-vertical-alignment {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: column !important;
+                -ms-flex-pack: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+
+                .footer-column-18-vertical-alignment > div {
+                    flex-shrink: 0 !important;
+                }
+
+            .footer-column-18-row-0-vertical-alignment > .row-fluid {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: row;
+                display: flex !important;
+                flex-direction: row;
+            }
+
+            .footer-module-19-vertical-alignment {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: column !important;
+                -ms-flex-pack: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+
+                .footer-module-19-vertical-alignment > div {
+                    flex-shrink: 0 !important;
+                }
+
+            .cell_1642728768629-vertical-alignment {
+                display: -ms-flexbox !important;
+                -ms-flex-direction: column !important;
+                -ms-flex-pack: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+
+                .cell_1642728768629-vertical-alignment > div {
+                    flex-shrink: 0 !important;
+                }
+        }
+        /* HubSpot Styles (default) */
+        .dnd_area-row-0-padding {
+            padding-top: 15px !important;
+            padding-bottom: 20px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .dnd_area-row-0-background-layers {
+            background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)) !important;
+            background-position: left top !important;
+            background-size: auto !important;
+            background-repeat: no-repeat !important;
+        }
+
+        .dnd_area-row-1-padding {
+            padding-top: 150px !important;
+            padding-bottom: 150px !important;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .dnd_area-row-1-background-layers {
+            background-image: linear-gradient(rgba(249, 250, 251, 1), rgba(249, 250, 251, 1)) !important;
+            background-position: left top !important;
+            background-size: auto !important;
+            background-repeat: no-repeat !important;
+        }
+
+        .dnd_area-row-2-padding {
+            padding-top: 150px !important;
+            padding-bottom: 150px !important;
+        }
+
+        .dnd_area-row-2-background-layers {
+            background-image: linear-gradient(rgba(30, 61, 96, 1), rgba(30, 61, 96, 1)) !important;
+            background-position: left top !important;
+            background-size: auto !important;
+            background-repeat: no-repeat !important;
+        }
+
+        .dnd_area-row-4-padding {
+            padding-top: 100px !important;
+            padding-bottom: 100px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .dnd_area-row-4-background-layers {
+            background-image: url('hs/images/canyon-1852921_1920.jpg') !important;
+            background-position: center center !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+        }
+
+        .dnd_area-row-7-padding {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .dnd_area-row-8-padding {
+            padding-top: 100px !important;
+            padding-bottom: 100px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .footer-row-0-padding {
+            padding-top: 40px !important;
+            padding-bottom: 40px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .footer-row-1-padding {
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .footer-row-2-padding {
+            padding-top: 60px !important;
+            padding-bottom: 40px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .footer-row-3-padding {
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .footer-row-4-padding {
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .footer-column-4-row-0-margin {
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+
+        .footer-column-11-row-1-margin {
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+
+        .footer-column-8-row-1-margin {
+            margin-top: 0px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .footer-column-5-row-1-margin {
+            margin-top: 0px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .cell_1642678619611-row-0-margin {
+            margin-top: 0px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .cell_1642678619611-row-1-margin {
+            margin-top: 0px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .cell_16427279942282-row-0-margin {
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+
+        .footer-column-18-row-0-margin {
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        /* HubSpot Styles (mobile) */
+        @media (max-width: 767px) {
+            .dnd_area-row-0-padding {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+            .dnd_area-row-4-padding {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+            .dnd_area-row-8-padding {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+            .footer-row-2-padding {
+                padding-top: 60px !important;
+                padding-bottom: 30px !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .footer-row-3-padding {
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+
+            .footer-row-4-padding {
+                padding-top: 20px !important;
+                padding-bottom: 20px !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body id ="MasterBody" runat="server">
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="body-wrapper hs-content-id-64387195056 hs-site-page page">
+            <!--header -->
+            <div>
+                <header class="header">
+                    <div class="container-fluid content-wrapper">
+                        <div class="row-fluid-wrapper">
+                            <div class="row-fluid">
+                                <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+                                </div>
+                                <!--end widget-span -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="header__container">
+                        <div class="header__column">
+                            <div class="header__row-1 ">
+                                <div class="header__row-1-container">
+                                </div>
+
+                            </div>
+
+                            <div class="header__row-2" id="header-row-2">
+                                <div class="header__logo header__logo--main">
+                                    <div id="hs_cos_wrapper_site_logo" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-logo" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                        <span id="hs_cos_wrapper_site_logo_hs_logo_widget" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_logo" style="" data-hs-cos-general-type="widget" data-hs-cos-type="logo"><a href="default.aspx" id="hs-link-site_logo_hs_logo_widget" style="border-width: 0px; border: 0px;">
+                                            <img src="hs/images/logo-nhan-hoang1.png" class="hs-image-widget " height="47" style="height: auto; width: 50px; border-width: 0px; border: 0px;" width="50"></a></span>
+                                    </div>
+                                </div>
+
+                                <div class="header--toggle header__navigation--toggle" id="header-navigation-toggle"></div>
+                                <div class="header__close--toggle" id="header-close-toggle"></div>
+                                <div class="header__navigation header--element" id="header-element">
+                                    <div id="hs_cos_wrapper_navigation-primary" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                        <nav aria-label="Main menu" class="navigation-primary">
+                                            <ul class="submenu level-1">
+                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/home" class="menu-link active-item" aria-current="page">Home</a>
+                                                </li>
+
+                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/about" class="menu-link">About</a>
+                                                </li>
+
+                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/courses" class="menu-link">Courses</a>
+                                                </li>
+
+                                                <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
+                                                    <a href="javascript:;" class="menu-link active-branch">Pages</a>
+
+
+                                                    <input type="checkbox" id="Pages" class="submenu-toggle">
+                                                    <label class="menu-arrow" for="Pages">
+                                                        <span class="menu-arrow-bg"></span>
+                                                    </label>
+
+
+                                                    <ul class="submenu level-2">
+                                                        <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
+                                                            <a href="javascript:;" class="menu-link active-branch">Menu</a>
+                                                            <input type="checkbox" id="Menu" class="submenu-toggle">
+
+                                                            <label class="menu-arrow" for="Menu">
+                                                                <span class="menu-arrow-bg"></span>
+                                                            </label>
+
+                                                            <ul class="submenu level-3">
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite"><a href="https://14487128.hubspotpagebuilder.com/quest/home" class="menu-link active-item" aria-current="page">Home</a></li>
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite"><a href="https://14487128.hubspotpagebuilder.com/quest/about" class="menu-link">About</a></li>
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite"><a href="https://14487128.hubspotpagebuilder.com/quest/courses" class="menu-link">Courses</a></li>
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite"><a href="https://14487128.hubspotpagebuilder.com/quest/courses/graphic-design-101" class="menu-link">Individual Course</a></li>
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite"><a href="//14487128.hs-sites.com/quest/blog" class="menu-link">Blog</a></li>
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite"><a href="//14487128.hs-sites.com/quest/blog/19-ways-to-optimize-your-ad-marketing-budget-efficiently" class="menu-link">Blog Post</a></li>
+
+                                                            </ul>
+                                                        </li>
+
+                                                        <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
+                                                            <a href="javascript:;" class="menu-link"></a>
+                                                            <input type="checkbox" id="" class="submenu-toggle">
+                                                            <label class="menu-arrow" for="">
+                                                                <span class="menu-arrow-bg"></span>
+                                                            </label>
+                                                            <ul class="submenu level-3">
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/events" class="menu-link">Events</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/events/brand-and-identity" class="menu-link">Individual Event</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/about#quest-member-cards" class="menu-link">Teachers</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/blog/author/lena-young" class="menu-link">Individual Teacher</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/contact" class="menu-link">Contact</a>
+                                                                </li>
+                                                            </ul>
+
+
+                                                        </li>
+
+                                                        <li class="has-submenu menu-item hs-skip-lang-url-rewrite">
+                                                            <a href="javascript:;" class="menu-link">Utility Pages</a>
+
+                                                            <input type="checkbox" id="Utility Pages" class="submenu-toggle">
+                                                            <label class="menu-arrow" for="Utility Pages">
+                                                                <span class="menu-arrow-bg"></span>
+                                                            </label>
+
+
+                                                            <ul class="submenu level-3">
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/start-here" class="menu-link">Start Here</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://f.hubspotusercontent20.net/hubfs/14487128/raw_assets/public/quest/images/template-previews/404.png" class="menu-link">404 Not Found</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/protected-page" class="menu-link">Password Protected</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/licenses" class="menu-link">Licenses</a>
+                                                                </li>
+
+                                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                                    <a href="https://14487128.hubspotpagebuilder.com/quest/changelog" class="menu-link">Changelog</a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+
+
+                                                </li>
+
+                                                <li class="no-submenu menu-item hs-skip-lang-url-rewrite">
+                                                    <a href="https://14487128.hs-sites.com/quest/blog" class="menu-link">Blog</a>
+                                                </li>
+
+                                            </ul>
+
+                                        </nav>
+                                    </div>
+                                    <div>
+                                        <div id="hs_cos_wrapper_menu_button" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+
+                                            <ul class="menu-button">
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid content-wrapper">
+                        <div class="row-fluid-wrapper">
+                            <div class="row-fluid">
+                                <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+                                </div>
+                                <!--end widget-span -->
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+
+            <!--content place holder -->
+            <div class="body-container-wrapper">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+            <!--footer -->
+            <footer class="footer">
+                <div class="container-fluid footer__container">
+                    <div class="row-fluid-wrapper">
+                        <div class="row-fluid">
+                            <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-17 footer-row-4-padding dnd-section footer-row-4-vertical-alignment">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-cell cell_1642728768629-vertical-alignment dnd-column" style="" data-widget-type="cell" data-x="0" data-w="6">
+
+                                            <div class="row-fluid-wrapper row-depth-1 row-number-18 dnd-row">
+                                                <div class="row-fluid ">
+                                                    <div class="span12 widget-span widget-type-custom_widget dnd-module" style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+                                                        <div id="hs_cos_wrapper_module_1642728763783" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                            <span id="hs_cos_wrapper_module_1642728763783_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text">
+                                                                <p style="text-align: center; margin-bottom: 0px;">Copyright © NHF 2025 – Powered by Huu Nguyen</p>
+                                                            </span>
+                                                        </div>
+
+                                                    </div>
+                                                    <!--end widget-span -->
+                                                </div>
+                                                <!--end row-->
+                                            </div>
+                                            <!--end row-wrapper -->
+
+                                        </div>
+                                        <!--end widget-span -->
+                                        <!--end widget-span -->
+                                    </div>
+                                    <!--end row-->
+                                </div>
+                                <!--end row-wrapper -->
+
+                            </div>
+                            <!--end widget-span -->
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+        
+    </form>
+
+    <script src="hs/js/jquery-3.6.0.min.js"></script>
+    <script src="hs/js/main.min.js"></script>
+    <script>var hsVars = hsVars || {}; hsVars['language'] = 'en';</script>
+    <script src="hs/hsstatic/cos-i18n/static-1.53/bundles/project.js"></script>
+    <script src="hs/js/slick.min.js"></script>
+    <script src="hs/js/quest-course-slider.min.js"></script>
+    <script src="hs/js/masonry.min.js"></script>
+    <script src="hs/js/quest-testimonial-slider.min.js"></script>
+    <script src="hs/js/quest-recent-post.min.js"></script>
+
+</body>
+</html>

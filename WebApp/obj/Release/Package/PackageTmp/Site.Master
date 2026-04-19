@@ -1,0 +1,198 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication2.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: this.Page.Title %> - Production Output Register Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />   
+    <%--<link href="Content/style1.css" rel="stylesheet" />--%>
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+   
+    
+</head>
+<body id ="MasterBody" runat="server">
+    
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div runat="server" id="divD8" visible="false" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container" style="padding: 0px 0px;">
+                <div class="navbar-header" id="banner1">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="/images/mai2.png" height="50">
+                    <%--<a runat="server" class="navbar-brand" href="~/">POR System</a>--%>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <%--<ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Production Info <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+                                
+                                <li><a id="A27" runat="server" href="ProductionValue.aspx"><img src="/images/dao_icon1.png" /> Production Value</a></li>
+                                <li class="divider"></li>                                
+                               
+                                <li><a id="A30" runat="server" href="~/OrderBookSearch"><img src="/images/dao_icon1.png" /> Order Book</a></li>
+                            <li><a id="A31" runat="server" href="~/tools/BOM_Drawing"><img src="/images/dao_icon1.png" /> Item BOM & Drawing</a></li>
+                                    <li><a id="A24" runat="server" href="~/tools/BOM_Reader"><img src="/images/dao_icon1.png" /> BOM Reader</a></li>
+                                    <li><a id="A26" runat="server" href="~/tools/MappingGL"><img src="/images/dao_icon1.png" /> BOM Reader</a></li>
+                                </ul>
+                        </li>
+
+                    </ul>--%>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Account/Personal" title="Manage your account"><% if (Session["username"] != null)
+       {%> <%: "Hello, " + Session["username"].ToString() %> <%}%></a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div runat="server" id="divNormal" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container" style="padding: 0px 0px;">
+                <div class="navbar-header" id="banner">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="/hs/images/logo-icon-70-WHITE.png" height="45" style="padding-top: 4px;">                   
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" style="margin-left: 30px;">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <%--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Production Info <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+                                <li><a id="A5" runat="server" href="ProductionTarget.aspx"><img src="/images/dao_icon1.png" /> Realtime Target</a></li>
+                                <li><a id="A6" runat="server" href="MasterPlan"><img src="/images/dao_icon1.png" /> Master Plan</a></li>
+                                <li><a id="A7" runat="server" href="ProductionStatus"><img src="/images/dao_icon1.png" /> Production Status</a></li>
+                                <li><a id="A8" runat="server" href="/ProductionValue"><img src="/images/dao_icon1.png" /> Production Value</a></li>
+                                <li class="divider"></li>
+                                <li><a id="A9" runat="server" href="~/"> <img src="/images/dao_icon1.png" /> Output Register</a></li>
+                                <li><a id="A15" runat="server" href="~/MasterPlan?showHistory=true"> <img src="/images/dao_icon1.png" /> Shipped PIs</a></li>
+                                <li><a id="A16" runat="server" href="~/OrderBookSearch"><img src="/images/dao_icon1.png" /> Order Book</a></li>
+                                <li><a id="A23" runat="server" href="~/tools/BOM_Drawing"><img src="/images/dao_icon1.png" /> Item BOM & Drawing</a></li>
+                                <li><a id="A25" runat="server" href="~/tools/BOM_Reader"><img src="/images/dao_icon1.png" /> BOM Reader</a></li>
+                                </ul>
+                        </li>--%>
+
+                       <%-- <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setup <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a id="A10" runat="server" href="/ProductionTargetSetup">
+                                    <img src="/images/dao_icon1.png" />
+                                    Daily Target Setup</a></li>
+                                <li><a id="A11" runat="server" href="/Account/SetupParameter">
+                                    <img src="/images/dao_icon1.png" />
+                                    Parameters Setup</a></li>
+
+                            </ul>
+                        </li>--%>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a id="A12" runat="server" target="_blank" href="/kaizen/kaizenlist">
+                                    <img src="/images/watermelon-icon.png" />
+                                    Kaizen System</a></li>
+                                <%--<li><a id="A13" runat="server" target="_blank" href="/kpi/KPIResult">
+                                    <img src="/images/watermelon-icon.png" />
+                                    KPI Bonus System</a></li>
+                                <li><a id="A1" runat="server" target="_blank" href="/gantt/gantt">
+                                    <img src="/images/watermelon-icon.png" />
+                                    SQR Gantt chart</a></li>
+                                <li><a id="A2" runat="server" target="_blank" href="/qc/qrlist">
+                                    <img src="/images/watermelon-icon.png" />
+                                    Quality defective</a></li>
+                                <li><a id="A18" runat="server" target="_blank" href="/qc/QRAnalysis">
+                                    <img src="/images/watermelon-icon.png" />
+                                    Quality Report Analysis</a></li>
+                                <li class="divider"></li>
+                                <li><a id="A17" runat="server" target="_blank" href="~/timber/timbercriteria">
+                                    <img src="/images/watermelon-icon.png" />
+                                    Timber Tracking System</a></li>
+                                <li class="divider"></li>--%>
+                                <li><a id="A3" runat="server" href="/Account/Manage">
+                                    <img src="/images/watermelon-icon.png" />
+                                    Change Password</a></li>
+                                <li><a id="A4" runat="server" href="/Account/Lockout">
+                                    <img src="/images/watermelon-icon.png" />
+                                    Lock Out</a></li>
+                            </ul>
+                        </li>
+
+                        <%--                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+                                <li><a id="A14" runat="server" target="_blank" href="/tools/ReOrderItems"><img src="/images/dao_icon1.png" /> ReOrder Items</a></li>
+                               
+                                     <li><a id="A19" runat="server" target="_blank" href="/tools/HRHeadcountReport"><img src="/images/dao_icon1.png" /> Headcount Report</a></li>
+                                  
+                                     <li><a id="A20" runat="server" target="_blank" href="/tools/fgstock"><img src="/images/dao_icon1.png" /> FGs Stock Report</a></li>
+                                 
+                                     <li><a id="A21" runat="server" target="_blank" href="/resource-calendar/index"><img src="/images/dao_icon1.png" /> Meeting Room Calendar</a></li>
+                                    <li><a id="A22" runat="server" target="_blank" href="/tools/LoadingHeader"><img src="/images/dao_icon1.png" /> Container Loading Schedule</a></li>
+                                  
+                                </ul>
+                        </li>--%>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Account/Personal" title="Manage your account"><% if (Session["username"] != null)
+       {%> <%: "Hello, " + Session["username"].ToString() %> <%}%></a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+       
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> by NHF - Powered by Huu Nguyen</p>
+            </footer>
+        </div>
+
+        <!--Phao hoa banner -->
+        <%--<div runat="server" id="divPhaoHoa">
+            <script src="/dist/js/xteam_fireworks.min.js" type="text/javascript"></script>
+            <script>
+                jQuery(function ($) {
+                    var firework = Xteam.fireworkShow('#banner', 400);
+                }
+                );
+            </script>
+        </div>--%>
+    </form>
+    
+    
+</body>
+</html>
