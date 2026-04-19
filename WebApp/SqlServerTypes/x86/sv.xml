@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ConnectionStrings>
+        <Cnt name="ERPConnection" value="Data Source=115.74.253.121,52112;Initial Catalog=DEV_ALL_NAV_90;User ID=eRPk.RUK5KrrhuMBjD5qI2gqaN6XOvghmp7SBl8U9aaHRIAw|;Password=fBr+Nklh5Wn51aKFfQ||.24V063Y4oeKiAlon+Bfq4kuZ3F/MM01joGGzJl6eq00|" />
+        <Cnt name="MRPConnection" value="Data Source=115.74.253.121,52112;Initial Catalog=DEV_MRP_ALL;User ID=eRPk.RUK5KrrhuMBjD5qI2gqaN6XOvghmp7SBl8U9aaHRIAw|;Password=fBr+Nklh5Wn51aKFfQ||.24V063Y4oeKiAlon+Bfq4kuZ3F/MM01joGGzJl6eq00|" />
+        <Cnt name="LocalConnection" value="Data Source=(local);Initial Catalog=DatabaseName;Integrated Security=True" />
+        <Cnt name="HRConnection" value="Data Source=115.79.201.115,52112;Initial Catalog=HRIS_ALLIANCE1;User ID=VjJ4b1MyUjNQVDA9;Password=VjFaa05HTXlSbGhTYmxaYVRXeGFRbFJXVWtwbFp6MDk=" />
+        <Cnt name="erp_connection_NH" value="Data Source=115.79.201.115,52212;Initial Catalog=B8_LienMinh;User ID=eATi.xO6b0l6rtlsquKQBIbOO/glVoCrpJdcPDwsQeP2pm3s|;Password=fBr+Nklh5Wn51aKFfQ||.24V063Y4oeKiAlon+Bfq4kuZ3F/MM01joGGzJl6eq00|" />
+    </ConnectionStrings>
+</Configuration>
