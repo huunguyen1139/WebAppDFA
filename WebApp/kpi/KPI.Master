@@ -1,0 +1,376 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="KPI.master.cs" Inherits="WebApplication2.kpi.KPI" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <meta name="robots" content="noindex,nofollow">
+    <title>Online KPIs System</title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="src/assets/images/favicon.png" />
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet" />
+    <link href="src/assets/libs/footable/css/footable.bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>  <!-- nut delete, xoa trong table -->
+   
+  
+</head>
+<body id="MasterBody" runat="server">
+    <div id="MyPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;</button>
+                    <h4 class="modal-title">
+                    </h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function ShowPopup(title, body) {
+            //$("#MyPopup .modal-title").html(title);
+            $("#MyPopup .modal-body").html(body);
+            $("#MyPopup").modal("show");
+        }
+    </script>
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+
+            </Scripts>
+        </asp:ScriptManager>
+     <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="src/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+                            <img src="src/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                             <!-- dark Logo text -->
+                             <img src="src/assets/images/logo-text.png" alt="homepage" class="dark-logo" width="148"/>
+                             <!-- Light Logo text -->    
+                             <img src="src/assets/images/logo-light-text.png" class="light-logo" alt="homepage" width="148" />
+                        </span>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="icon-arrow-left-circle"></i></a></li>
+                      
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav">
+                        
+                         <% if (Session["userid"]!=null) {%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><% if (Session["userid"]!=null) {%> <img src="src/assets/images/users/<%: Session["userid"].ToString() %>.jpg" alt="user" class="rounded-circle" width="31" onerror="this.onerror=null; this.src='src/assets/images/users/erroruser.png'"> <%} %></a>
+                            <div class="dropdown-menu dropdown-menu-end user-dd animated flipInY">
+                                <div class="d-flex no-block align-items-center p-3 mb-2 border-bottom">
+                                    <div class=""> <img src="src/assets/images/users/<%: Session["userid"].ToString() %>.jpg" alt="user" class="rounded" width="80" onerror="this.onerror=null; this.src='src/assets/images/users/erroruser.png'"/>  </div>
+                                    <div class="ml-2">
+                                        <h4 class="mb-0"><%: Session["username"].ToString() %></h4>
+                                        <p class=" mb-0"></p>
+                                        <a href="#" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user text-info me-1 ms-1"></i> My Profile</a>
+                                <a class="dropdown-item" href="/kaizen/kaizenist.aspx" target="_blank"><i class="ti-wallet text-info me-1 ms-1"></i> My Kaizen</a>
+                                <a class="dropdown-item" href="/default.aspx" target="_blank"><i class="ti-email text-success me-1 ms-1"></i> POR System</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings text-warning me-1 ms-1"></i> Account Setting</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/Account/lockout.aspx"><i class="fa fa-power-off text-danger me-1 ms-1"></i> Logout</a>
+                            </div>
+                        </li>
+                        <%} %>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li>
+                            <!-- User profile -->
+                             <% if (Session["userid"]!=null) {%>
+                            <div class="user-profile text-center position-relative pt-4 mt-1">
+                                <!-- User profile image -->
+                                <div class="profile-img m-auto"><img src="src/assets/images/users/<%: Session["userid"].ToString() %>.jpg" alt="user" class="w-100 rounded-circle" onerror="this.onerror=null; this.src='src/assets/images/users/erroruser.png'"></div>
+                                <!-- User profile text-->
+
+                                <div class="profile-text py-1"> <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><%: Session["username"].ToString() %> <span class="caret"></span></a>
+                                    <div class="dropdown-menu animated flipInY">
+                                        <a href="#" class="dropdown-item"><i class="ti-user text-info me-1 ms-1"></i> My Profile</a>
+                                        <a href="/kaizen/kaizenlist.aspx" class="dropdown-item" target="_blank"><i class="ti-wallet text-warning me-1 ms-1"></i> My Kaizen</a>
+                                        <a href="/default.aspx" class="dropdown-item" target="_blank"><i class="ti-email text-info me-1 ms-1"></i> POR System</a>
+                                        <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings text-success me-1 ms-1"></i> Account Setting</a>
+                                        <div class="dropdown-divider"></div> <a href="/Account/lockout.aspx" class="dropdown-item"><i class="fa fa-power-off text-danger me-1 ms-1"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                             <%} %>
+                            <!-- End User profile text-->
+                        </li>
+                        <!-- User Profile-->
+                                              
+                                                
+                       
+                        <li class="nav-devider"></li>
+                        <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">KPI System</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i data-feather="codepen" class="feather-icon"></i><span class="hide-menu">KPI Result</span></a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item"><a href="KPIResult.aspx?type=Supervisor" class="sidebar-link"><i class="mdi mdi-border-all"></i><span class="hide-menu">Supervisor </span></a></li>
+                                <li class="sidebar-item"><a href="KPIResult.aspx?type=TeamLeader" class="sidebar-link"><i class="mdi mdi-border-left"></i><span class="hide-menu">Team Leader </span></a></li>
+                                <li class="sidebar-item"><a href="KPIResult.aspx?type=Leader" class="sidebar-link"><i class="mdi mdi-border-left"></i><span class="hide-menu">Line Leader </span></a></li>
+                                <li class="sidebar-item"><a href="KPIResult.aspx?type=Worker" class="sidebar-link"><i class="mdi mdi-border-outside"></i><span class="hide-menu">Worker </span></a></li>
+                                <%--<li class="sidebar-item"><a href="KPIResult.aspx?type=Cleaner" class="sidebar-link"><i class="mdi mdi-border-all"></i><span class="hide-menu">Cleaner </span></a></li>
+                                <li class="sidebar-item"><a href="KPIResult.aspx?type=WHWorker" class="sidebar-link"><i class="mdi mdi-border-left"></i><span class="hide-menu">Warehouse Worker </span></a></li>
+                                <li class="sidebar-item"><a href="KPIResult.aspx?type=QC" class="sidebar-link"><i class="mdi mdi-border-outside"></i><span class="hide-menu">QC Worker </span></a></li>--%>
+                                <%--<li class="sidebar-item"><a href="table-layout-coloured.html" class="sidebar-link"><i class="mdi mdi-border-bottom"></i><span class="hide-menu">Coloured Table Layout</span></a></li>--%>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i data-feather="hard-drive" class="feather-icon"></i><span class="hide-menu">KPI Setup</span></a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item"><a href="KPITeamMember.aspx" class="sidebar-link"><i class="mdi mdi-border-style"></i><span class="hide-menu"> Team member</span></a></li>
+                                <li class="sidebar-item"><a href="KPICriteriaSetup.aspx" class="sidebar-link"><i class="mdi mdi-border-vertical"></i><span class="hide-menu"> Criterion</span></a></li>
+                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-blur-linear"></i><span class="hide-menu"> Point</span></a></li>
+                                <li class="sidebar-item"><a href="#" class="sidebar-link"><i class="mdi mdi-border-style"></i><span class="hide-menu"> Employee</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="KPIViolateRecord.aspx" aria-expanded="false"><i data-feather="disc" class="feather-icon"></i><span class="hide-menu">Violation Record</span></a></li>
+                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/ReportViewer?type=kpiresult" target="_blank" aria-expanded="false"><i data-feather="smartphone" class="feather-icon"></i><span class="hide-menu">View Result List</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="Productivity.aspx" aria-expanded="false"><i data-feather="command" class="feather-icon"></i><span class="hide-menu">Productivity Bonus</span></a></li>
+                        <%--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-responsive.html" aria-expanded="false"><i data-feather="smartphone" class="feather-icon"></i><span class="hide-menu">Table Responsive</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-footable.html" aria-expanded="false"><i data-feather="command" class="feather-icon"></i><span class="hide-menu">Table Footable</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-editable.html" aria-expanded="false"><i data-feather="edit-2" class="feather-icon"></i><span class="hide-menu">Table Editable</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-bootstrap.html" aria-expanded="false"><i data-feather="target" class="feather-icon"></i><span class="hide-menu">Table Bootstrap</span></a></li>--%>
+                        
+                                 <li class="nav-devider"></li>              
+                        
+                       
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/Account/lockout.aspx" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Log Out</span></a></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            <!-- Bottom points-->
+            <div class="sidebar-footer">
+                <!-- item-->
+                <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+                <!-- item-->
+                <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <!-- item-->
+                <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+            </div>
+            <!-- End Bottom points-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <asp:ContentPlaceHolder ID="KPIContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- customizer Panel -->
+    <!-- ============================================================== -->
+    <aside class="customizer">
+        <a href="javascript:void(0)" class="service-panel-toggle"><i class="fa fa-spin fa-cog"></i></a>
+        <div class="customizer-body">
+            <ul class="nav customizer-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-wrench font-20"></i></a>
+                </li>
+              
+                   
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Tab 1 -->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="p-3 border-bottom">
+                        <!-- Sidebar -->
+                        <h5 class="font-weight-medium mb-2 mt-2">Layout Settings</h5>
+                        <div class="checkbox checkbox-info mt-2">
+                            <input type="checkbox" name="theme-view" id="theme-view">
+                            <label for="theme-view"> <span>Dark Theme</span> </label>
+                        </div>
+                        <div class="checkbox checkbox-info mt-2">
+                            <input type="checkbox" class="custom-control-input sidebartoggler" name="collapssidebar" id="collapssidebar">
+                            <label for="collapssidebar"> <span>Collapse Sidebar</span> </label>
+                        </div>
+                        <div class="checkbox checkbox-info mt-2">
+                            <input type="checkbox" name="sidebar-position" id="sidebar-position">
+                            <label for="sidebar-position"> <span>Fixed Sidebar</span> </label>
+                        </div>
+                        <div class="checkbox checkbox-info mt-2">
+                            <input type="checkbox" name="header-position" id="header-position">
+                            <label for="header-position"> <span>Fixed Header</span> </label>
+                        </div>
+                        <div class="checkbox checkbox-info mt-2">
+                            <input type="checkbox" name="boxed-layout" id="boxed-layout">
+                            <label for="boxed-layout"> <span>Boxed Layout</span> </label>
+                        </div>
+                    </div>
+                    <div class="p-3 border-bottom">
+                        <!-- Logo BG -->
+                        <h5 class="font-weight-medium mb-2 mt-2">Logo Backgrounds</h5>
+                        <ul class="theme-color m-0 p-0">
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-logobg="skin1"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-logobg="skin2"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-logobg="skin3"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-logobg="skin4"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-logobg="skin5"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-logobg="skin6"></a></li>
+                        </ul>
+                        <!-- Logo BG -->
+                    </div>
+                    <div class="p-3 border-bottom">
+                        <!-- Navbar BG -->
+                        <h5 class="font-weight-medium mb-2 mt-2">Navbar Backgrounds</h5>
+                        <ul class="theme-color m-0 p-0">
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-navbarbg="skin1"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-navbarbg="skin2"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-navbarbg="skin3"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-navbarbg="skin4"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-navbarbg="skin5"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-navbarbg="skin6"></a></li>
+                        </ul>
+                        <!-- Navbar BG -->
+                    </div>
+                    <div class="p-3 border-bottom">
+                        <!-- Logo BG -->
+                        <h5 class="font-weight-medium mb-2 mt-2">Sidebar Backgrounds</h5>
+                        <ul class="theme-color m-0 p-0">
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-sidebarbg="skin1"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-sidebarbg="skin2"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-sidebarbg="skin3"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-sidebarbg="skin4"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-sidebarbg="skin5"></a></li>
+                            <li class="theme-item list-inline-item mr-1"><a href="javascript:void(0)" class="theme-link rounded-circle d-block" data-sidebarbg="skin6"></a></li>
+                        </ul>
+                        <!-- Logo BG -->
+                    </div>
+                </div>
+                <!-- End Tab 1 -->
+                
+            </div>
+        </div>
+    </aside>
+    <div class="chat-windows"></div>
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script data-cfasync="false" src="dist/js/email-decode.min.js"></script>
+        <script src="src/assets/libs/jquery/dist/jquery.min.js"></script>
+         <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--%>
+        
+    <script src="src/assets/extra-libs/taskboard/js/jquery.ui.touch-punch-improved.js"></script>
+    <script src="src/assets/extra-libs/taskboard/js/jquery-ui.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="src/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="src/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/app.init.js"></script>
+    <script src="dist/js/app-style-switcher.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="src/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="src/assets/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/feather.min.js"></script>
+    <script src="dist/js/custom.min.js"></script>
+    <script src="src/assets/libs/moment/moment.js" type="text/javascript"></script>
+	<script src="src/assets/libs/footable/js/footable.min.js"></script>
+	<script src="dist/js/pages/tables/footable-init.js"></script>
+
+    <script src="src/assets/libs/moment/min/moment.min.js"></script>
+    <script src="src/assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="dist/js/pages/calendar/cal-init.js"></script>
+     
+     </form>   
+</body>
+</html>

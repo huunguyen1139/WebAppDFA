@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KPIReportData" targetNamespace="http://tempuri.org/KPIReportData.xsd" xmlns:mstns="http://tempuri.org/KPIReportData.xsd" xmlns="http://tempuri.org/KPIReportData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KPIReportData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="KPIReportData" msprop:Generator_DataSetName="KPIReportData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Supervisor" msprop:Generator_RowEvHandlerName="SupervisorRowChangeEventHandler" msprop:Generator_RowDeletedName="SupervisorRowDeleted" msprop:Generator_RowDeletingName="SupervisorRowDeleting" msprop:Generator_RowEvArgName="SupervisorRowChangeEvent" msprop:Generator_TablePropName="Supervisor" msprop:Generator_RowChangedName="SupervisorRowChanged" msprop:Generator_RowChangingName="SupervisorRowChanging" msprop:Generator_TableClassName="SupervisorDataTable" msprop:Generator_RowClassName="SupervisorRow" msprop:Generator_TableVarName="tableSupervisor" msprop:Generator_UserTableName="Supervisor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DCodePOR" msprop:Generator_ColumnPropNameInRow="DCodePOR" msprop:Generator_ColumnPropNameInTable="DCodePORColumn" msprop:Generator_ColumnVarNameInTable="columnDCodePOR" msprop:Generator_UserColumnName="DCodePOR" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCode" msprop:Generator_ColumnPropNameInRow="EmployeeCode" msprop:Generator_ColumnPropNameInTable="EmployeeCodeColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCode" msprop:Generator_UserColumnName="EmployeeCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPoint" msprop:Generator_ColumnPropNameInRow="TotalPoint" msprop:Generator_ColumnPropNameInTable="TotalPointColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPoint" msprop:Generator_UserColumnName="TotalPoint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalBonus" msprop:Generator_ColumnPropNameInRow="TotalBonus" msprop:Generator_ColumnPropNameInTable="TotalBonusColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBonus" msprop:Generator_UserColumnName="TotalBonus" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Leader" msprop:Generator_RowEvHandlerName="LeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="LeaderRowDeleted" msprop:Generator_RowDeletingName="LeaderRowDeleting" msprop:Generator_RowEvArgName="LeaderRowChangeEvent" msprop:Generator_TablePropName="Leader" msprop:Generator_RowChangedName="LeaderRowChanged" msprop:Generator_RowChangingName="LeaderRowChanging" msprop:Generator_TableClassName="LeaderDataTable" msprop:Generator_RowClassName="LeaderRow" msprop:Generator_TableVarName="tableLeader" msprop:Generator_UserTableName="Leader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DCodePOR" msprop:Generator_ColumnPropNameInRow="DCodePOR" msprop:Generator_ColumnPropNameInTable="DCodePORColumn" msprop:Generator_ColumnVarNameInTable="columnDCodePOR" msprop:Generator_UserColumnName="DCodePOR" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCode" msprop:Generator_ColumnPropNameInRow="EmployeeCode" msprop:Generator_ColumnPropNameInTable="EmployeeCodeColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCode" msprop:Generator_UserColumnName="EmployeeCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPoint" msprop:Generator_ColumnPropNameInRow="TotalPoint" msprop:Generator_ColumnPropNameInTable="TotalPointColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPoint" msprop:Generator_UserColumnName="TotalPoint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalBonus" msprop:Generator_ColumnPropNameInRow="TotalBonus" msprop:Generator_ColumnPropNameInTable="TotalBonusColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBonus" msprop:Generator_UserColumnName="TotalBonus" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Worker" msprop:Generator_RowEvHandlerName="WorkerRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkerRowDeleted" msprop:Generator_RowDeletingName="WorkerRowDeleting" msprop:Generator_RowEvArgName="WorkerRowChangeEvent" msprop:Generator_TablePropName="Worker" msprop:Generator_RowChangedName="WorkerRowChanged" msprop:Generator_RowChangingName="WorkerRowChanging" msprop:Generator_TableClassName="WorkerDataTable" msprop:Generator_RowClassName="WorkerRow" msprop:Generator_TableVarName="tableWorker" msprop:Generator_UserTableName="Worker">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DCodePOR" msprop:Generator_ColumnPropNameInRow="DCodePOR" msprop:Generator_ColumnPropNameInTable="DCodePORColumn" msprop:Generator_ColumnVarNameInTable="columnDCodePOR" msprop:Generator_UserColumnName="DCodePOR" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCode" msprop:Generator_ColumnPropNameInRow="EmployeeCode" msprop:Generator_ColumnPropNameInTable="EmployeeCodeColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCode" msprop:Generator_UserColumnName="EmployeeCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPoint" msprop:Generator_ColumnPropNameInRow="TotalPoint" msprop:Generator_ColumnPropNameInTable="TotalPointColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPoint" msprop:Generator_UserColumnName="TotalPoint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalBonus" msprop:Generator_ColumnPropNameInRow="TotalBonus" msprop:Generator_ColumnPropNameInTable="TotalBonusColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBonus" msprop:Generator_UserColumnName="TotalBonus" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TeamLeader" msprop:Generator_RowEvHandlerName="TeamLeaderRowChangeEventHandler" msprop:Generator_RowDeletedName="TeamLeaderRowDeleted" msprop:Generator_RowDeletingName="TeamLeaderRowDeleting" msprop:Generator_RowEvArgName="TeamLeaderRowChangeEvent" msprop:Generator_TablePropName="TeamLeader" msprop:Generator_RowChangedName="TeamLeaderRowChanged" msprop:Generator_RowChangingName="TeamLeaderRowChanging" msprop:Generator_TableClassName="TeamLeaderDataTable" msprop:Generator_RowClassName="TeamLeaderRow" msprop:Generator_TableVarName="tableTeamLeader" msprop:Generator_UserTableName="TeamLeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DCodePOR" msprop:Generator_ColumnPropNameInRow="DCodePOR" msprop:Generator_ColumnPropNameInTable="DCodePORColumn" msprop:Generator_ColumnVarNameInTable="columnDCodePOR" msprop:Generator_UserColumnName="DCodePOR" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCode" msprop:Generator_ColumnPropNameInRow="EmployeeCode" msprop:Generator_ColumnPropNameInTable="EmployeeCodeColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCode" msprop:Generator_UserColumnName="EmployeeCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPoint" msprop:Generator_ColumnPropNameInRow="TotalPoint" msprop:Generator_ColumnPropNameInTable="TotalPointColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPoint" msprop:Generator_UserColumnName="TotalPoint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalBonus" msprop:Generator_ColumnPropNameInRow="TotalBonus" msprop:Generator_ColumnPropNameInTable="TotalBonusColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBonus" msprop:Generator_UserColumnName="TotalBonus" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WHWorker" msprop:Generator_RowEvHandlerName="WHWorkerRowChangeEventHandler" msprop:Generator_RowDeletedName="WHWorkerRowDeleted" msprop:Generator_RowDeletingName="WHWorkerRowDeleting" msprop:Generator_RowEvArgName="WHWorkerRowChangeEvent" msprop:Generator_TablePropName="WHWorker" msprop:Generator_RowChangedName="WHWorkerRowChanged" msprop:Generator_RowChangingName="WHWorkerRowChanging" msprop:Generator_TableClassName="WHWorkerDataTable" msprop:Generator_RowClassName="WHWorkerRow" msprop:Generator_TableVarName="tableWHWorker" msprop:Generator_UserTableName="WHWorker">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DCodePOR" msprop:Generator_ColumnPropNameInRow="DCodePOR" msprop:Generator_ColumnPropNameInTable="DCodePORColumn" msprop:Generator_ColumnVarNameInTable="columnDCodePOR" msprop:Generator_UserColumnName="DCodePOR" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCode" msprop:Generator_ColumnPropNameInRow="EmployeeCode" msprop:Generator_ColumnPropNameInTable="EmployeeCodeColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCode" msprop:Generator_UserColumnName="EmployeeCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPoint" msprop:Generator_ColumnPropNameInRow="TotalPoint" msprop:Generator_ColumnPropNameInTable="TotalPointColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPoint" msprop:Generator_UserColumnName="TotalPoint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalBonus" msprop:Generator_ColumnPropNameInRow="TotalBonus" msprop:Generator_ColumnPropNameInTable="TotalBonusColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBonus" msprop:Generator_UserColumnName="TotalBonus" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QC" msprop:Generator_RowEvHandlerName="QCRowChangeEventHandler" msprop:Generator_RowDeletedName="QCRowDeleted" msprop:Generator_RowDeletingName="QCRowDeleting" msprop:Generator_RowEvArgName="QCRowChangeEvent" msprop:Generator_TablePropName="QC" msprop:Generator_RowChangedName="QCRowChanged" msprop:Generator_RowChangingName="QCRowChanging" msprop:Generator_TableClassName="QCDataTable" msprop:Generator_RowClassName="QCRow" msprop:Generator_TableVarName="tableQC" msprop:Generator_UserTableName="QC">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DCodePOR" msprop:Generator_ColumnPropNameInRow="DCodePOR" msprop:Generator_ColumnPropNameInTable="DCodePORColumn" msprop:Generator_ColumnVarNameInTable="columnDCodePOR" msprop:Generator_UserColumnName="DCodePOR" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeCode" msprop:Generator_ColumnPropNameInRow="EmployeeCode" msprop:Generator_ColumnPropNameInTable="EmployeeCodeColumn" msprop:Generator_ColumnVarNameInTable="columnEmployeeCode" msprop:Generator_UserColumnName="EmployeeCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPoint" msprop:Generator_ColumnPropNameInRow="TotalPoint" msprop:Generator_ColumnPropNameInTable="TotalPointColumn" msprop:Generator_ColumnVarNameInTable="columnTotalPoint" msprop:Generator_UserColumnName="TotalPoint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalBonus" msprop:Generator_ColumnPropNameInRow="TotalBonus" msprop:Generator_ColumnPropNameInTable="TotalBonusColumn" msprop:Generator_ColumnVarNameInTable="columnTotalBonus" msprop:Generator_UserColumnName="TotalBonus" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

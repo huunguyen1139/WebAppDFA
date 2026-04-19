@@ -1,0 +1,29 @@
+.tablesm{
+    --bs-table-bg:transparent;
+    --bs-table-striped-color:#212529;
+    --bs-table-striped-bg:#ebf3f5;
+    --bs-table-active-color:#212529;
+    --bs-table-active-bg:rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color:#212529;
+    --bs-table-hover-bg:#ebf3f5;
+    width:100%;
+    margin-bottom:1rem;
+    color:#212529;
+    vertical-align:top;
+    border-color:#e8eef3
+}
+.tablesm>:not(caption)>*>*{
+    padding:.25rem .75rem;
+    background-color:var(--bs-table-bg);
+    background-image:linear-gradient(var(--bs-table-accent-bg),var(--bs-table-accent-bg));
+    border-bottom-width:1px
+}
+.tablesm>tbody{
+    vertical-align:inherit
+}
+.tablesm>thead{
+    vertical-align:bottom
+}
+.tablesm>:not(:last-child)>:last-child>*{
+    border-bottom-color:transparent
+}

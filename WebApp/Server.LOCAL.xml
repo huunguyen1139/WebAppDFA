@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ConnectionStrings>
+        <Connection name="ERPConnection" value="Data Source=(local);Initial Catalog=ALL_NAV_90;User ID=V1hwS1JsQlJQVDA9;Password=VkZaU1NtVnJOVVZXVkVwUFpIb3dPUT09" />
+        <Connection name="MRPConnection" value="Data Source=(local);Initial Catalog=MRP_ALL;User ID=V1hwS1JsQlJQVDA9;Password=VkZaU1NtVnJOVVZXVkVwUFpIb3dPUT09" />
+        <Connection name="LocalConnection" value="Data Source=(local);Initial Catalog=DatabaseName;Integrated Security=True" />
+        <Connection name="HRConnection" value="Data Source=115.79.201.115,52112;Initial Catalog=HRIS_ALLIANCE1;User ID=VjJ4b1MyUjNQVDA9;Password=VjFaa05HTXlSbGhTYmxaYVRXeGFRbFJXVWtwbFp6MDk=" />
+        
+        <Connection name="erp_connection_NH" value="Data Source=124.158.10.1211,52112;Initial Catalog=B8R3_NhanHoang;User ID=V1ZWb1YwMVhTblZYVkRBOQ==;Password=VmxWV1EyVnRUWHBaTTJScVlsWktVRlV3Vm1GUlYwWkpWbXBHVGxWVU1Eaz0=" />
+        <Connection name="erp_connection_NH_data" value="Data Source=124.158.10.1211,52112;Initial Catalog=B8R3_NhanHoang_Data;User ID=V1ZWb1YwMVhTblZYVkRBOQ==;Password=VmxWV1EyVnRUWHBaTTJScVlsWktVRlV3Vm1GUlYwWkpWbXBHVGxWVU1Eaz0=" />
+        <Connection name="mrp_connection_NH" value="Data Source=124.158.10.1211,52112;Initial Catalog=MRP_NHANHOANG;User ID=V1ZWb1YwMVhTblZYVkRBOQ==;Password=VmxWV1EyVnRUWHBaTTJScVlsWktVRlV3Vm1GUlYwWkpWbXBHVGxWVU1Eaz0=" />
+        <Connection name="hr_connection_NH" value="Data Source=124.158.10.1211,52112;Initial Catalog=MRP_NHANHOANG;User ID=V1ZWb1YwMVhTblZYVkRBOQ==;Password=VmxWV1EyVnRUWHBaTTJScVlsWktVRlV3Vm1GUlYwWkpWbXBHVGxWVU1Eaz0=" />
+    </ConnectionStrings>
+</Configuration>
