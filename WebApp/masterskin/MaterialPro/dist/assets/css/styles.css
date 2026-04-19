@@ -16,7 +16,7 @@
         src: url(../fonts/tabler-icons/fonts/tabler-icons.svg#tabler-icons) format("svg")
     }
 }
-
+ 
 .ti {
     font-family: tabler-icons!important;
     speak: none;
