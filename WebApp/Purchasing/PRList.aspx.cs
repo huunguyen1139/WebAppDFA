@@ -131,7 +131,7 @@ namespace WebApp.Purchase
             catch
             {
                 // keep silent
-                string a = "";
+                string a = "f";
             }
         }
 

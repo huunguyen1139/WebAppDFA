@@ -49,8 +49,3 @@ Thumbs.db
 !**/*.props
 !**/*.pubxml
 
-# =========================
-# If you WANT packages in git, keep this commented out
-# If you want to ignore packages, uncomment it
-# =========================
-# packages/
